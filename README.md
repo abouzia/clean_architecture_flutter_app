@@ -1,16 +1,52 @@
-# clean_architecture_app
+# Clean Architecture Flutter App
 
-A new Flutter project.
+This is a Flutter application that demonstrates the use of Clean Architecture.
+
+## Overview
+
+This app is a Flutter application built with the intention of following clean architecture principles. It uses the JSONPlaceholder API as a backend to fetch data and display it in the app.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-A few resources to get you started if this is your first Flutter project:
+### Prerequisites
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter SDK
+- Dart SDK
+- An IDE (like Android Studio or VS Code)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installation
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/clean_architecture_flutter_app.git
+    ```
+2. Navigate into the cloned repository:
+    ```bash
+    cd clean_architecture_flutter_app
+    ```
+3. Get the packages:
+    ```bash
+    flutter pub get
+    ```
+4. Run the app:
+    ```bash
+    flutter run
+    ```
+
+## Architecture
+
+The project follows Clean Architecture principles and is divided into three layers:
+
+- **Domain**: This is the inner layer which should not be susceptible to the whims of changing data sources or porting our app to Angular Dart. It will contain only the core business logic (use cases) and business objects (entities).
+- **Data**: This layer depends on the domain layer and is responsible for fetching data from various sources (API, cache, etc.). It's divided into repositories and data sources.
+- **Presentation**: This is the layer responsible for showing data on the screen (widgets) and user interactions. It depends on both the domain and data layers.
+
+## Contributing
+
+Contributions are welcome! Please read our contributing guidelines.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

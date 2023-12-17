@@ -14,12 +14,13 @@ class App extends StatelessWidget {
       title: 'Flutter Demo',
       theme: appTheme,
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Flutter Demo'),
-          ),
-          body: const Center(
-            child: Text('Hello World'),
-          )),
+        appBar: AppBar(
+          title: const Text('Flutter Demo'),
+        ),
+        body: const Center(
+          child: Text('Hello World'),
+        ),
+      ),
     );
   }
 }

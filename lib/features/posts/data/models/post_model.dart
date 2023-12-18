@@ -1,12 +1,10 @@
-class PostModel {
-  final int id;
-  final String title;
-  final String body;
+import 'package:clean_architecture_app/features/posts/domain/entities/post.dart';
 
+class PostModel extends Post {
   const PostModel({
-    required this.id,
-    required this.title,
-    required this.body,
+    required super.id,
+    required super.title,
+    required super.body,
   });
 
   factory PostModel.fromJson(Map<String, dynamic> json) {

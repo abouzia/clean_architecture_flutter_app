@@ -9,6 +9,6 @@ class GetAllPosts {
   GetAllPosts(this.postsRepository);
 
   Future<Either<Failure, List<Post>>> call() async {
-    return await postsRepository.getPosts();
+    return await postsRepository.getAllPosts();
   }
 }

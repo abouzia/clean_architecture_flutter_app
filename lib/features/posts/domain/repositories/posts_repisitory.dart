@@ -1,5 +1,5 @@
 import 'package:clean_architecture_app/core/error/failures.dart';
-import 'package:clean_architecture_app/features/domain/entities/post.dart';
+import 'package:clean_architecture_app/features/posts/domain/entities/post.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class PostsRepository {

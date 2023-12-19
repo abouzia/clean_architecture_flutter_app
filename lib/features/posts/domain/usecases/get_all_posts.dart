@@ -3,10 +3,10 @@ import 'package:clean_architecture_app/features/posts/domain/entities/post.dart'
 import 'package:clean_architecture_app/features/posts/domain/repositories/posts_repisitory.dart';
 import 'package:dartz/dartz.dart';
 
-class GetAllPosts {
+class GetAllPostsUseCase {
   final PostsRepository postsRepository;
 
-  GetAllPosts(this.postsRepository);
+  GetAllPostsUseCase(this.postsRepository);
 
   Future<Either<Failure, List<Post>>> call() async {
     return await postsRepository.getAllPosts();

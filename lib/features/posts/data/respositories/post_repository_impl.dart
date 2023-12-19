@@ -8,7 +8,7 @@ import 'package:clean_architecture_app/features/posts/domain/entities/post.dart'
 import 'package:clean_architecture_app/features/posts/domain/repositories/posts_repisitory.dart';
 import 'package:dartz/dartz.dart';
 
-typedef Future<Unit> addOrUpdateOrDeletePost();
+typedef AddOrUpdateOrDeletePost = Future<Unit> Function();
 
 class PostRepositoryImpl implements PostsRepository {
   final RemoteDataSource remoteDataSource;
@@ -69,7 +69,7 @@ class PostRepositoryImpl implements PostsRepository {
   }
 
   Future<Either<Failure, Unit>> _getMessage(
-    addOrUpdateOrDeletePost addOrDeleteOrUpdate,
+    AddOrUpdateOrDeletePost addOrDeleteOrUpdate,
   ) async {
     if (await networkInfo.isConnected) {
       try {

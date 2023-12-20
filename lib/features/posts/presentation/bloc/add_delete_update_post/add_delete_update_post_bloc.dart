@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:clean_architecture_app/core/error/failures.dart';
 import 'package:clean_architecture_app/core/strings/failures.dart';
 import 'package:clean_architecture_app/core/strings/messages.dart';
@@ -8,6 +7,7 @@ import 'package:clean_architecture_app/features/posts/domain/usecases/delete_pos
 import 'package:clean_architecture_app/features/posts/domain/usecases/update_post.dart';
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'add_delete_update_post_event.dart';
 part 'add_delete_update_post_state.dart';

@@ -10,12 +10,12 @@ import 'package:dartz/dartz.dart';
 
 typedef AddOrUpdateOrDeletePost = Future<Unit> Function();
 
-class PostRepositoryImpl implements PostsRepository {
+class PostsRepositoryImpl implements PostsRepository {
   final RemoteDataSource remoteDataSource;
   final LocalDataSource localDataSource;
   final NetworkInfo networkInfo;
 
-  PostRepositoryImpl({
+  PostsRepositoryImpl({
     required this.remoteDataSource,
     required this.localDataSource,
     required this.networkInfo,

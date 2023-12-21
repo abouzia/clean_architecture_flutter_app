@@ -13,13 +13,13 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final GetAllPostsUseCase getAllPosts;
   PostsBloc({required this.getAllPosts}) : super(PostsInitial()) {
     on<PostsEvent>((event, emit) async {
-      if (event is getAllPostsEvent) {
+      if (event is GetAllPostsEvent) {
         emit(PostsLoading());
         final postsOrFailure = await getAllPosts();
         emit(
           _mapFailureOrPostsToState(postsOrFailure),
         );
-      } else if (event is refreshPostsEvent) {
+      } else if (event is RefreshPostsEvent) {
         emit(PostsLoading());
         final postsOrFailure = await getAllPosts();
         emit(

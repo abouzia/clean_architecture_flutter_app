@@ -11,6 +11,7 @@ import 'package:clean_architecture_app/features/posts/presentation/bloc/add_dele
 import 'package:clean_architecture_app/features/posts/presentation/bloc/posts/posts_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart' as http;
+import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final locator = GetIt.instance;
@@ -26,6 +27,7 @@ Future<void> setupLocator() async {
   locator.registerLazySingleton(() => sharedPreferences);
 
   locator.registerLazySingleton(() => http.Client());
+  locator.registerLazySingleton(() => InternetConnectionChecker());
 
   //! Features - Posts
   // Blocs

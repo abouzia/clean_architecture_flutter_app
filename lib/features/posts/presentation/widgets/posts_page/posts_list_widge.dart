@@ -18,7 +18,7 @@ class PostsListWidget extends StatelessWidget {
           subtitle: Text(post.body),
           contentPadding: const EdgeInsets.all(8),
           onTap: () {
-            // TODO
+            // TODO: Add navigation
           },
         );
       },

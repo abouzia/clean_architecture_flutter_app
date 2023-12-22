@@ -44,7 +44,6 @@ class PostsRepositoryImpl implements PostsRepository {
   @override
   Future<Either<Failure, Unit>> addPost(Post post) async {
     final postModel = PostModel(
-      id: post.id,
       title: post.title,
       body: post.body,
     );

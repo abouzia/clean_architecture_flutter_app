@@ -2,6 +2,7 @@ import 'package:clean_architecture_app/core/util/snackbar_message.dart';
 import 'package:clean_architecture_app/core/widgets/loading_widget.dart';
 import 'package:clean_architecture_app/features/posts/domain/entities/post.dart';
 import 'package:clean_architecture_app/features/posts/presentation/bloc/add_delete_update_post/add_delete_update_post_bloc.dart';
+import 'package:clean_architecture_app/features/posts/presentation/widgets/post_add_update_page/form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -36,15 +37,10 @@ class PostAddUpdatePage extends StatelessWidget {
           }
         },
         builder: (BuildContext context, AddDeleteUpdatePostState state) {
-          if (state is AddDeleteUpdatePostLoaded) {
-            return const SizedBox.shrink();
-          }
-
           if (state is AddDeleteUpdatePostLoading) {
             return const LoadingWidget();
           }
-          return const SizedBox.shrink();
-          //return FormWidget(post: post, isUpdate: isUpdate);
+          return FormWidget(post: post);
         },
       ),
     );

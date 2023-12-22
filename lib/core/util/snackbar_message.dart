@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class SnackBarMessage {
   static void showSuccessMessage(String message, BuildContext context) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
@@ -11,6 +12,8 @@ class SnackBarMessage {
   }
 
   static void showErrorMessage(String message, BuildContext context) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),

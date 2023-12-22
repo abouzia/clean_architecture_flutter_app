@@ -7,28 +7,28 @@ sealed class AddDeleteUpdatePostEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class addPostEvent extends AddDeleteUpdatePostEvent {
+class AddPostEvent extends AddDeleteUpdatePostEvent {
   final Post post;
 
-  const addPostEvent({required this.post});
+  const AddPostEvent({required this.post});
 
   @override
   List<Object> get props => [post];
 }
 
-class updatePostEvent extends AddDeleteUpdatePostEvent {
+class UpdatePostEvent extends AddDeleteUpdatePostEvent {
   final Post post;
 
-  const updatePostEvent({required this.post});
+  const UpdatePostEvent({required this.post});
 
   @override
   List<Object> get props => [post];
 }
 
-class deletePostEvent extends AddDeleteUpdatePostEvent {
+class DeletePostEvent extends AddDeleteUpdatePostEvent {
   final int postId;
 
-  const deletePostEvent({required this.postId});
+  const DeletePostEvent({required this.postId});
 
   @override
   List<Object> get props => [postId];

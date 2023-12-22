@@ -23,7 +23,7 @@ class AddDeleteUpdatePostBloc
     required this.deletePost,
   }) : super(AddDeleteUpdatePostInitial()) {
     on<AddDeleteUpdatePostEvent>((event, emit) async {
-      if (event is addPostEvent) {
+      if (event is AddPostEvent) {
         emit(AddDeleteUpdatePostLoading());
 
         final failureOrSuccess = await addPost(event.post);
@@ -31,7 +31,7 @@ class AddDeleteUpdatePostBloc
         emit(
           _addDeleteUpdatePostState(failureOrSuccess, ADD_SUCCESS_MESSAGE),
         );
-      } else if (event is updatePostEvent) {
+      } else if (event is UpdatePostEvent) {
         emit(AddDeleteUpdatePostLoading());
 
         final failureOrSuccess = await updatePost(event.post);
@@ -39,7 +39,7 @@ class AddDeleteUpdatePostBloc
         emit(
           _addDeleteUpdatePostState(failureOrSuccess, UPDATE_SUCCESS_MESSAGE),
         );
-      } else if (event is deletePostEvent) {
+      } else if (event is DeletePostEvent) {
         emit(AddDeleteUpdatePostLoading());
 
         final failureOrSuccess = await deletePost(event.postId);
@@ -65,9 +65,9 @@ class AddDeleteUpdatePostBloc
 
   String _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
-      case ServerFailure():
+      case ServerFailure:
         return SERVER_FAILURE_MESSAGE;
-      case OfflineFailure():
+      case OfflineFailure:
         return OFFLINE_FAILURE_MESSAGE;
       default:
         return UNEXPECTED_ERROR;

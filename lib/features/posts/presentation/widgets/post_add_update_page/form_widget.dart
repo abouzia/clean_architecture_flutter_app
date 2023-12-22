@@ -1,17 +1,21 @@
 import 'package:clean_architecture_app/features/posts/domain/entities/post.dart';
+import 'package:clean_architecture_app/features/posts/presentation/bloc/add_delete_update_post/add_delete_update_post_bloc.dart';
+import 'package:clean_architecture_app/features/posts/presentation/widgets/post_add_update_page/form_submit_button_widget.dart';
+import 'package:clean_architecture_app/features/posts/presentation/widgets/post_add_update_page/text_form_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormWidget extends StatefulWidget {
   final Post? post;
-  final bool isUpdate;
 
-  const FormWidget({super.key, this.post, this.isUpdate = false});
+  const FormWidget({super.key, this.post});
 
   @override
   State<FormWidget> createState() => _FormWidgetState();
 }
 
 class _FormWidgetState extends State<FormWidget> {
+  bool isEditMode = false;
   final _formKey = GlobalKey<FormState>();
   TextEditingController titleController = TextEditingController();
   TextEditingController bodyController = TextEditingController();
@@ -19,9 +23,31 @@ class _FormWidgetState extends State<FormWidget> {
   @override
   void initState() {
     super.initState();
-    if (widget.post != null) {
+    isEditMode = widget.post != null;
+    if (isEditMode) {
       titleController.text = widget.post!.title;
       bodyController.text = widget.post!.body;
+    }
+  }
+
+  void validateAndSubmit() {
+    final isValid = _formKey.currentState!.validate();
+    if (!isValid) {
+      return;
+    }
+    _formKey.currentState!.save();
+
+    final post = Post(
+      id: widget.post?.id,
+      title: titleController.text,
+      body: bodyController.text,
+    );
+    if (isEditMode) {
+      BlocProvider.of<AddDeleteUpdatePostBloc>(context)
+          .add(UpdatePostEvent(post: post));
+    } else {
+      BlocProvider.of<AddDeleteUpdatePostBloc>(context)
+          .add(AddPostEvent(post: post));
     }
   }
 
@@ -31,7 +57,14 @@ class _FormWidgetState extends State<FormWidget> {
       key: _formKey,
       child: Column(
         children: [
-          // TODO: Add TextFormFields and ElevatedButton here
+          TextFormFieldWidget(
+              name: 'Title', controller: titleController, multiLine: false),
+          TextFormFieldWidget(
+              name: 'Body', controller: bodyController, multiLine: true),
+          FormSubmitButtonWidget(
+            isEditMode: isEditMode,
+            onSubmit: validateAndSubmit,
+          )
         ],
       ),
     );

@@ -6,7 +6,6 @@ const secondaryColor = Color(0xff51eec2);
 
 final appTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
-    brightness: Brightness.dark,
     seedColor: primaryColor,
   ),
   textTheme: GoogleFonts.montserratTextTheme(),

@@ -1,4 +1,5 @@
-import 'package:clean_architecture_app/features/posts/domain/entities/post.dart';
+import '../../../domain/entities/post.dart';
+import '../../pages/post_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class PostsListWidget extends StatelessWidget {
@@ -18,7 +19,11 @@ class PostsListWidget extends StatelessWidget {
           subtitle: Text(post.body),
           contentPadding: const EdgeInsets.all(8),
           onTap: () {
-            // TODO: Add navigation
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => PostDetailPage(post: post),
+              ),
+            );
           },
         );
       },

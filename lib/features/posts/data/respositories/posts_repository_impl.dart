@@ -1,11 +1,11 @@
-import 'package:clean_architecture_app/core/error/exceptions.dart';
-import 'package:clean_architecture_app/core/error/failures.dart';
-import 'package:clean_architecture_app/core/network/network_info.dart';
-import 'package:clean_architecture_app/features/posts/data/datasources/local_data_source.dart';
-import 'package:clean_architecture_app/features/posts/data/datasources/remote_data_source.dart';
-import 'package:clean_architecture_app/features/posts/data/models/post_model.dart';
-import 'package:clean_architecture_app/features/posts/domain/entities/post.dart';
-import 'package:clean_architecture_app/features/posts/domain/repositories/posts_repisitory.dart';
+import '../../../../core/error/exceptions.dart';
+import '../../../../core/error/failures.dart';
+import '../../../../core/network/network_info.dart';
+import '../datasources/local_data_source.dart';
+import '../datasources/remote_data_source.dart';
+import '../models/post_model.dart';
+import '../../domain/entities/post.dart';
+import '../../domain/repositories/posts_repisitory.dart';
 import 'package:dartz/dartz.dart';
 
 typedef AddOrUpdateOrDeletePost = Future<Unit> Function();

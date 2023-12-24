@@ -20,7 +20,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/clean_architecture_flutter_app.git
+    git clone https://github.com/abouzia/clean_architecture_flutter_app.git
     ```
 2. Navigate into the cloned repository:
     ```bash
